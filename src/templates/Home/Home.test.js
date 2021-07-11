@@ -1,6 +1,5 @@
-
-test('renders learn react link', () => {
-  // render(<App />);
-  // const linkElement = screen.getByText(/Clicame!/i);
-  // expect(linkElement).toBeInTheDocument();
+describe('<Home />', () => {
+  it('is a dummy test 1', () => {
+    expect(1).toBe(1);
+  });
 });
