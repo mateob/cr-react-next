@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { TextInput } from '.';
 
-const props = [];
-
 describe('<TextInput />', () => {
   it('should have a value of serachValue', () => {
     const fn = jest.fn();
@@ -16,12 +14,12 @@ describe('<TextInput />', () => {
 
   it('should call handleChange function on each key pressed', () => {
     const fn = jest.fn();
-    render(<TextInput handleChange={fn} />);
+    render(<TextInput handleChange={fn} searchValue="testing" />);
 
     const input = screen.getByPlaceholderText(/type your search/i);
     const value = 'new value';
-    userEvent.type(input, value);
-    expect(input.value).toBe(value);
+    userEvent.type(input, value); // A função não altera o dado
+    expect(input.value).toBe('testing');
     expect(fn).toHaveBeenCalledTimes(value.length);
   });
 
